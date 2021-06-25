@@ -1,18 +1,83 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <nav-header></nav-header>
+    <nav-main></nav-main>
+    <nav-footer></nav-footer>
+    <div @click="clickName('jack')">{{name}}</div>
+    <div>和{{addNum}}</div>
+    <div @click="clickName2">{{name2}}</div>
+    <div>{{list}}</div>
+    <button @click="gotoPage">跳转路由</button>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+    import navHeader from "@/components/navHeader/navHeader.vue"
+    import navFooter from "@/components/navFooter/navFooter.vue"
+    import navMain from "@/components/navMain/navMain.vue"
+    import {defineComponent,ref,reactive,toRefs,computed,onMounted} from 'vue'
+    import {useStore} from 'vuex'
+    import {useRouter,useRoute} from 'vue-router'
+    export default defineComponent({
+        name: 'Home',
+        props: {},
+        components: {
+            navHeader,
+            navMain,
+            navFooter
+        },
+        setup(props,ctx) {
+            const router = useRouter();
+            const route = useRoute();
+            console.log('router',useRouter());
+            let store = useStore();
+            let list = computed(()=>{
+                return store.state.list
+            })
+            console.log('store',store);
+            let num = ref(10);
+            let name = ref('jack');
+            let data = reactive({
+                name2: 'mary',
+                age: 12,
+                sex: 'girl',
+                obj: {
+                    price: 20
+                },
+                arr: [1,'e']
+            });
+            onMounted(()=>{
+                console.log('onMounted')
+            });
+            console.log('setup');
+            let clickName = (value:string) => {
+                console.log(value)
+            };
+            let clickName2 = () => {
+                console.log(data.name2)
+            };
+            let addNum = computed(()=>{
+                //必须返回一个值
+                return data.obj.price + data.age
+            });
+            let gotoPage = () =>{
+                router.push({path: '/about'})
+            };
+            return {
+                //练习测试数据
+                // num,
+                name,
+                data,
+                ...toRefs(data),
+                clickName,
+                clickName2,
+                addNum,
+                gotoPage,
+                // toDolist数据
+                list
+            }
+        }
+    })
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
 </script>
+<style scoped>
+
+</style>

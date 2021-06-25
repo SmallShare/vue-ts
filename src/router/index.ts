@@ -11,8 +11,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'About',
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (about.[hash].ts) for this route
     // which is lazy-loaded when the route is visited.
+    //按需引入
+    //  如果没有访问，就不会加载这个组件，节约性能
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
