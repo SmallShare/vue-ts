@@ -1,12 +1,12 @@
 <template>
-    <nav-header></nav-header>
-    <nav-main></nav-main>
-    <nav-footer></nav-footer>
-    <div @click="clickName('jack')">{{name}}</div>
-    <div>和{{addNum}}</div>
-    <div @click="clickName2">{{name2}}</div>
-    <div>{{list}}</div>
-    <button @click="gotoPage">跳转路由</button>
+    <nav-header @add="add"></nav-header>
+    <nav-main :list="list" @del="del"></nav-main>
+    <nav-footer :list="list" @clear="clear"></nav-footer>
+    <!--<div @click="clickName('jack')">{{name}}</div>-->
+    <!--<div>和{{addNum}}</div>-->
+    <!--<div @click="clickName2">{{name2}}</div>-->
+    <!--<div>{{list}}</div>-->
+    <!--<button @click="gotoPage">跳转路由</button>-->
 </template>
 
 <script lang="ts">
@@ -31,8 +31,31 @@
             let store = useStore();
             let list = computed(()=>{
                 return store.state.list
-            })
+            });
             console.log('store',store);
+            let add = (val:any) => {
+                // 先判断有没有存在的任务，没有再添加
+                console.log('11',list);
+                let flag = true;
+                list.value.map(item=>{
+                    if(val === item.title){
+                        flag = false;
+                        alert('任务已存在');
+                    }
+                })
+                // for(let item in list){
+                //     if((val as any) == (item as any)['title']){
+                //         alert('任务已存在');
+                //         return;
+                //     }
+                // }
+                if(flag){
+                    store.commit('addTodo',{
+                        title: val,
+                        complete: false
+                    });
+                }
+            };
             let num = ref(10);
             let name = ref('jack');
             let data = reactive({
@@ -61,6 +84,12 @@
             let gotoPage = () =>{
                 router.push({path: '/about'})
             };
+            let del = (val) =>{
+                store.commit('delTodo',val);
+            }
+            let clear = (val) =>{
+                store.commit('clear',val);
+            }
             return {
                 //练习测试数据
                 // num,
@@ -72,7 +101,10 @@
                 addNum,
                 gotoPage,
                 // toDolist数据
-                list
+                list,
+                add,
+                del,
+                clear
             }
         }
     })

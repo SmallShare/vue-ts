@@ -8,11 +8,13 @@
 
     export default defineComponent({
         name: 'navHeader',
-        setup() {
+        setup(props,ctx) {
             let value = ref('');
             let enter = () =>{
             //回车确认
                 console.log(value.value);
+                ctx.emit('add',value.value);
+                value.value = '';
             };
             return {
                 value,

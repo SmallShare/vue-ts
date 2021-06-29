@@ -11,7 +11,7 @@ export default createStore({
           },
           {
               title: '睡觉',
-              complete: false
+              complete: true
           },
           {
               title: '敲代码',
