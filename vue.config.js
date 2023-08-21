@@ -1,6 +1,26 @@
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 module.exports = {
+  configureWebpack: {
+    module:{
+      rules:[{
+        test:/\.mjs$/,
+        include:/node_modules/,
+        type:'javascript/auto'
+      }]
+    },
+    plugins: [
+      require('unplugin-auto-import/webpack')({
+        imports: ['vue'],
+        eslintrc : {
+          enabled : true ,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true
+        },
+        dts: './src/auto-import.d.ts',
+      }),
+    ],
+  },
     // 默认'/'，部署应用包时的基本 URL
     publicPath: "./",
 
@@ -43,13 +63,4 @@ module.exports = {
         patterns: []
       }
     },
-    configureWebpack: {
-      module:{
-        rules:[{
-          test:/\.mjs$/,
-          include:/node_modules/,
-          type:'javascript/auto'
-        }]
-      }
-    }
 };
