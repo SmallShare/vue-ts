@@ -6,7 +6,7 @@
     <!--<div>和{{addNum}}</div>-->
     <!--<div @click="clickName2">{{name2}}</div>-->
     <!--<div>{{list}}</div>-->
-    <!--<button @click="gotoPage">跳转路由</button>-->
+    <button @click="gotoPage">跳转路由</button>
 </template>
 
 <script lang="ts">
@@ -82,7 +82,7 @@
                 return data.obj.price + data.age
             });
             let gotoPage = () =>{
-                router.push({path: '/about'})
+                router.push({path: '/detail'})
             };
             let del = (val) =>{
                 store.commit('delTodo',val);
