@@ -1,291 +1,93 @@
-@charset "utf-8";
-/* CSS Document */
-html,body{ width:100%;  height:100%; font-family:"PingFang SC","Helvetica Neue",Helvetica,"Microsoft Yahei","WenQuanYi Micro Hei",Arial,Verdana,sans-serif;}
-body,button,input,select,textarea{font:62.5% "微软雅黑",arial,sans-serif; color: #333;}
-html,body,h1,h2,h3,h4,h5,p,ul,li,dl,dd,div,p{padding:0; margin:0;}
-h1,h2,h3,h4,h5{ font-weight:normal;}
-img{border:0;  vertical-align: middle;} .dis{ display:block;} 
-img{margin:0;}
-.fl{ float:left;} .fr{ float:right;} .fb{ font-weight:bold;} .tr{ text-align:right;}.dis{display:block;}.mr10{margin-right:10px}.pd10{padding:0 10px;}
-input:focus{outline:0}
-a, div, header, span, p {-webkit-tap-highlight-color: rgba(255,255,255,0);}
-li{ list-style:none;}
-a{ text-decoration:none;}
-.relative{position:relative;}
-.absolute{position:absolute;}
-.allCov{width: 100%;height: 100%;margin:0 auto;overflow:hidden;z-index: 5;position: absolute;_zoom:1;}
-.session{height: 100%;position: relative;}
-.page{height: 100%;position: relative; background:#f9f9f9;}
-.display_none{display: none;}
-.bg_f4{background: #f9f9f9;}
-.text-alignc{text-align: center;}
-.text-indent{text-indent: 2rem;}
-.bg_fff{background: #fff;}
-.c_red{color: #FF0000;}
-
-  /* 右边三角 */
-  .bd_sj {
-    display: inline-block;
-    content: "";
-    width: .16rem;
-    height: .16rem;
-    border: solid #B4B4B4;
-    border-width: 1px 1px 0 0;
-    -webkit-transform: translate(0, -50%) rotate(45deg);
-    transform: translate(0, -50%) rotate(45deg);
-  }
-.color_333{color: #333;}
-[v-cloak] {
-  display: none;
- }
- .clearfix:after{
-  content:"";
-  display:block;
-  visibility:hidden;
-  clear:both;
-  height:0;
-  }
-
-/*使其容器如DIV的内容自动换行*/
-* {
-    word-wrap: break-word;
-  }
-  
-  /*去掉内外边距-内外边距通常让各个浏览器样式的表现位置不同*/
-  html, body, h1, h2, h3, h4, h5, h6, hr, p, iframe, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td, fieldset {
+body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    border: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*取消链接高亮*/
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 100%;
-    font-family: Microsoft YaHei;
-  }
-  
-  /*谷歌支持小于12px字体的解决办法*/
-  html, body {
-    font-size: 8px;
-    font-family: Microsoft YaHei, simhei, Tahoma, Arial, sans-serif;
-  }
-  
-  /*去掉列表标签的默认样式*/
-  ul, ol, dl {
-    list-style-type: none
-  }
-  
-  /*防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
-  html {
-    font-family: sans-serif; /* 1 */
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-size: 625%; /*所有的px尺寸/100*/
-  }
-  
-  b,
-  strong {
-    font-weight: bold;
-  }
-  
-  /* 设置HTML5元素为块 */
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section {
-    display: block;
-  }
-  
-  address, caption, cite, code, dfn, em, th, var, i, em {
-    font-style: normal;
-    font-weight: normal
-  }
-  input, button, textarea, select, optgroup, option {
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit
-  }
-  button {
-    overflow: visible;
-    vertical-align: middle;
-    outline: none
-  }
-  input[type="button"],
-  input[type="reset"],
-  input[type="submit"] {
-    cursor: pointer;
-  }
-  body {
-    font-size: .14rem;
-    color: #333;
-    background: #f4f4f4;
-  }
-  hr {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-size: 100%
-  }
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-  a:hover {
-    text-decoration: none; /*color:#fff !important;*/
-  }
-  a:focus {
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+    font-weight: 700;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#app {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.padding-content {
+    padding: 4px 0;
+}
+
+a:focus,
+a:active {
     outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
     text-decoration: none;
-  }
-  a:hover, a:active {
-    outline: none; /*color:#51B44F;*/
-  }
-  :focus {
-    outline: none
-  }
-  sub, sup {
-    vertical-align: baseline
-  }
-  li, span, p {
-    transition: all 0.2s linear 0s;
-  }
-  
-  
-  /*IE下a:hover 背景闪烁*/
-  /*html{overflow:-moz-scrollbars-vertical;zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache",false,true)}(this))}*/
-  
-  img {
-    border: none;
-  }
-  /*---------------------HTML5 reset--------------------------*/
-  header, footer, section, aside, details, menu, article, section, nav, address, hgroup, figure, figcaption, legend {
-    display: block;
-    margin: 0;
-    padding: 0
-  }
-  time {
-    display: inline
-  }
-  audio, canvas, video {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1
-  }
-  audio:not([controls]) {
-    display: none
-  }
-  svg:not(:root) {
-    overflow: hidden
-  }
-  /* HTML5 媒体文件跟 img 保持一致 */
-  audio, canvas, video {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-  }
-  /*HTML5新模块元素在IE8、9版本浏览器中没有被定义默认样式。为解决该问题，给下列元素添加“block”显示属性*/
-  article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
-    display: block;
-  }
-  
-  /*清除浮动*/
-  .clearfix {
-    zoom: 1;
-    *zoom: 1;
-  }
-  /*解决ie6/7下面的浮动塌陷问题*/
-  .clearfix:before, .clearfix:after {
-    display: table;
-    line-height: 0;
-    content: "";
-  }
-  /*display:table;解决其他下面的浮动塌陷问题,line-height是将添加的内容高度设为0；*/
-  .clearfix:after {
-    clear: both;
-  }
-  .pointer{
-      cursor: pointer
-  }
-  .nowrap{
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-  }
-  /*浮动*/
-  .fl {
-    float: left!important;
-  }
-  
-  .fr {
-    float: right!important;
-  }
-  /*圆角公共部分*/
-  .br {
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-  }
-  /*水平线*/
-  hr {
-    margin-top: 0px;
-    margin-bottom: 20px;
-    border: 0;
-    border-top: 1px solid #eee;
-  }
-  .w1180{
-    width: 1180px;
-    margin: 0 auto;
-  }
-  .el-breadcrumb{
-    height: 74px;
-    line-height: 74px;
-    font-size: 22px;
-    color: rgba(62, 63, 66, 1);
-    border-bottom: 1px solid rgba(234, 237, 243, 1);
-    margin-bottom: 20px;
-  }
-  .el-pagination {
-    text-align: center;
-    padding-top: 60px;
-  }
-  .tab{
-    height: 74px;
-    line-height: 74px;
-    font-size: 22px;
-    color: rgba(62, 63, 66, 1);
-    border-bottom: 1px solid rgba(234, 237, 243, 1);
-    margin-bottom: 20px;
-  }
-  .tab span{
-    cursor:pointer;
-  }
-
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    html,body{height: 812px;}
 }
 
-/* .header {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-} */
-  
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  html,body{height: 812px;}
+div:focus {
+    outline: none;
 }
 
+.fr {
+    float: right;
+}
 
-    
+.fl {
+    float: left;
+}
+
+.pr-5 {
+    padding-right: 5px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.block {
+    display: block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.inlineBlock {
+    display: block;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+ }
+
+
+
+
