@@ -22,7 +22,7 @@ module.exports = {
     ],
   },
     // 默认'/'，部署应用包时的基本 URL
-    publicPath: "./",
+    publicPath: "/",
 
     // 'dist', 生产环境构建文件的目录
     outputDir: 'dist',
