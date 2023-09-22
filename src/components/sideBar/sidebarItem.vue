@@ -3,7 +3,6 @@
     <!-- 当该菜单项有子菜单时 -->
     <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 0">
       <template #title v-if="item.meta.icon">
-        <!-- 菜单项图标，我此处用的是全局封装的 svg组件 -->
         <el-icon></el-icon>
         <!-- 菜单项名称，在路由中定义好 -->
         <span>{{ item.meta.title }}</span>

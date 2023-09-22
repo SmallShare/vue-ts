@@ -21,8 +21,8 @@ import SideBarItem from './sidebarItem'
 import {useRouter} from 'vue-router'
 const router = useRouter();
 const routerList = router.options.routes.filter((item) => item.meta && item.meta.isShow);
+// const routerList = router.getRoutes().filter((item) => item.meta && item.meta.isShow);
 console.log(routerList)
-console.log('list',router.options.routes)
 const isCollapse = ref(false)
 const props = defineProps({
   isCollapseFlag: {
@@ -51,6 +51,9 @@ watch(isCollapseFlag, (newValue, oldVlaue) => {
 }
 .el-menu-vertical{
   height: 100%;
+}
+.side-collapse{
+  width: calc(100% - 60px);
 }
 
 </style>

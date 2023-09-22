@@ -1,10 +1,10 @@
 <template>
   <div class="app-container">
     <el-container class="page-container">
-      <el-aside width="200px">
+      <el-aside  :class="{asideWidthMin: isCollapseFlag, asideWidthMax: !isCollapseFlag}">
         <side-bar :isCollapseFlag="isCollapseFlag"></side-bar>
       </el-aside>
-      <el-container>
+      <el-container :class="{containerMin:isCollapseFlag}">
         <el-header>
           <div @click="collapseClick">
             <el-icon v-if="isCollapseFlag"><Expand /></el-icon>
@@ -29,5 +29,17 @@ function collapseClick(){
 .page-container{
   width: 100%;
   height: 100%;
+}
+.asideWidthMin{
+  width: 64px;
+  transition: width 0.28s;
+}
+.asideWidthMax{
+  width: 200px;
+  transition: width 0.28s;
+}
+.containerMin{
+  width: calc(100% - 64px);
+  transition: width 0.28s;
 }
 </style>
