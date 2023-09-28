@@ -5,11 +5,12 @@
         <side-bar :isCollapseFlag="isCollapseFlag"></side-bar>
       </el-aside>
       <el-container :class="{containerMin:isCollapseFlag}">
-        <el-header>
+        <el-header class="header">
           <div @click="collapseClick">
-            <el-icon v-if="isCollapseFlag"><Expand /></el-icon>
-            <el-icon v-else><Fold /></el-icon>
+            <el-icon class="collapseIcon" v-if="isCollapseFlag"><Expand /></el-icon>
+            <el-icon class="collapseIcon" v-else><Fold /></el-icon>
           </div>
+          <BreadCrumb></BreadCrumb>
         </el-header>
         <el-main>
           <router-view/>
@@ -20,6 +21,7 @@
 </template>
 <script lang="ts" setup>
 import SideBar from '@/components/sideBar/index'
+import BreadCrumb from '@/components/breadCrumb/index'
 const isCollapseFlag = ref(true);
 function collapseClick(){
   isCollapseFlag.value = !isCollapseFlag.value;
@@ -41,5 +43,17 @@ function collapseClick(){
 .containerMin{
   width: calc(100% - 64px);
   transition: width 0.28s;
+}
+.collapseIcon{
+ width: 40px;
+ height: 40px;
+}
+:deep(.el-icon svg){
+  width: 24px;
+  height: 24px;
+}
+.header{
+  display: flex;
+  align-items: center;
 }
 </style>
