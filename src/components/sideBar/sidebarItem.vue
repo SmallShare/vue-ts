@@ -3,7 +3,7 @@
     <!-- 当该菜单项有子菜单时 -->
     <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 0">
       <template #title v-if="item.meta.icon">
-        <el-icon></el-icon>
+        <el-icon><component :is="item.meta.icon" /></el-icon>
         <!-- 菜单项名称，在路由中定义好 -->
         <span>{{ item.meta.title }}</span>
       </template>
@@ -16,7 +16,7 @@
     <el-menu-item :index="item.path" v-else>
     <!-- 与上面注释大致相同，不多做额外注释 -->
       <template v-if="item.meta.icon">
-        <el-icon></el-icon>
+        <el-icon><component :is="item.meta.icon" /></el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
       <template v-else>
@@ -26,6 +26,7 @@
   </template>
 </template>
 <script lang="ts" setup name="SideBarItem">
+import { HomeFilled, Avatar,Comment} from '@element-plus/icons-vue';
 // 做类型限制，解决ts类型报错
 const props = defineProps({
   routerList: {

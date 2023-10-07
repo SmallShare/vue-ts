@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
 		meta: {
 			isShow: true,
 			"title": "首页",
-			"icon": "usericon",
+			"icon": "HomeFilled",
 			"noCache": false,
 			"link": null
 		}
@@ -35,7 +35,7 @@ const routes: Array<RouteRecordRaw> = [
 		meta: {
 			isShow: true,
 			"title": "关于我们",
-			"icon": "usericon",
+			"icon": "HelpFilled",
 			"noCache": false,
 			"link": null
 		}
@@ -48,7 +48,7 @@ const routes: Array<RouteRecordRaw> = [
 		"meta": {
 			isShow: true,
 			"title": "用户管理",
-			"icon": "usericon",
+			"icon": "Avatar",
 			"noCache": false,
 			"link": null
 		},
@@ -86,7 +86,7 @@ const routes: Array<RouteRecordRaw> = [
 		"meta": {
 			isShow: true,
 			"title": "系统通知",
-			"icon": "usericon",
+			"icon": "Comment",
 			"noCache": false,
 			"link": null
 		},
