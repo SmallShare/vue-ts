@@ -17,7 +17,7 @@
 
 <script lang="ts" setup name="SideBar">
 // import { location, document,setting} from '@element-plus/icons-vue';
-import SideBarItem from './sidebarItem'
+import SideBarItem from './sidebarItem.vue'
 import {useRouter} from 'vue-router'
 const router = useRouter();
 const routerList = router.options.routes.filter((item) => item.meta && item.meta.isShow);

@@ -20,8 +20,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import SideBar from '@/components/sideBar/index'
-import BreadCrumb from '@/components/breadCrumb/index'
+import SideBar from '@/components/sideBar/index.vue'
+import BreadCrumb from '@/components/breadCrumb/index.vue'
 const isCollapseFlag = ref(true);
 function collapseClick(){
   isCollapseFlag.value = !isCollapseFlag.value;
