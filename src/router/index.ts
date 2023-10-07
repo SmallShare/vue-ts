@@ -4,7 +4,7 @@ import index from '../views/index.vue'
 const routes: Array<RouteRecordRaw> = [
 	{
 		path:"/",
-		redirect:"/index"
+		redirect:"/system/user"
 	},
 	{
 		path: '/Index',

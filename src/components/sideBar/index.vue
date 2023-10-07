@@ -23,7 +23,7 @@ const router = useRouter();
 const routerList = router.options.routes.filter((item) => item.meta && item.meta.isShow);
 // const routerList = router.getRoutes().filter((item) => item.meta && item.meta.isShow);
 console.log(routerList)
-const isCollapse = ref(false)
+const isCollapse = ref(true)
 const props = defineProps({
   isCollapseFlag: {
     type: Boolean,
